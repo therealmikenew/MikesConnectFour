@@ -6,24 +6,32 @@
 }
 
 .gamesquares {
+  border: 1px solid black;
   display: grid;
-  /* border: 1px solid black; */
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  background-color: blue;
+
+  grid-template-columns: repeat(7, 3fr);
+  grid-template-rows: repeat(7, 3fr);
   height: 800px;
   width: 800px;
   justify-items: center;
   align-content: center;
 }
 
-.squares {
+.squares,
+.squares-click {
   display: grid;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   justify-items: center;
   align-items: center;
-
   border: 3px solid rgba(0, 0, 0, 0.8);
+  border-radius: 100%;
+  background-color: white;
+}
+
+.squares-click:hover {
+  background-color: red;
 }
 .container-1-gameboard,
 .container-2-gameboard {
@@ -34,4 +42,9 @@
 .container-3-gameboard {
   display: flex;
   justify-content: flex-end;
+}
+
+.start-page {
+  list-style: none;
+  display: inline;
 }
