@@ -2,7 +2,7 @@
 
 ![Connect Four](https://thumbs.gfycat.com/RipeBitesizedBarasinga-size_restricted.gif)
 
-## 11/17/2021
+## 11/18/2021
 
 ## By: Michael Newman
 
@@ -14,9 +14,13 @@
 
 #### Mike's Connect Four is a version of the classic game created by Milton Bradley.
 
-On page load, users are presented with a landing page where they can select a two-player game or to play against the computer. If they choose to play against the computer, they can select Fast mode (player must make selection within 3 seconds [or risk ending game] and computer makes selection within 3 seconds) or Normal mode (no time restriction).
+#### On page load, users are presented with a landing page where they can select a two-player game or opt to play against the computer.
 
-After player makes selection, they are navigated to the game board to where they can pick either red or black pieces. They must press a start button to begin game.
+#### After selecting either two-player or versus the computer, users can select Fast mode where users must make game moves within a certain amount or time or risk ending the game. If they select Fast mode and also versus the computer, the computer makes selection within a few seconds. In Normal mode (both two-player or versus the computer), there is no time restriction.
+
+#### After the user makes their selections, they are navigated to the game board where they can pick either red or black pieces. They must press a start button to begin game.
+
+#### A scoreboard keeps track of wins. A reset button will empty the game board and reset the score tally. A button will allow users to navigate back to the landing page where they can "start over" and/or make new selections.
 
 ---
 
