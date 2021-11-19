@@ -34,8 +34,9 @@
 }
 
 .squares-click:hover {
-  background-color: red;
+  background-color: greenyellow;
 }
+
 .container-1-gameboard,
 .container-2-gameboard {
   display: flex;
