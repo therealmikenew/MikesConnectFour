@@ -8,12 +8,18 @@
 #title-gameboard {
   display: flex;
   justify-content: center;
+  margin: auto;
   border: 1px solid black;
   font-size: 45px;
 }
 
 h1 {
   color: antiquewhite;
+}
+
+#startgame {
+  margin: 40px 10px 10px 10px;
+  text-align: center;
 }
 
 .player-wins {

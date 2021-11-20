@@ -23,16 +23,16 @@ const currentColor = () => {
 
 ////////////// playermoves events
 
-// const gameover = () => {
-//   console.log("gameover?");
-//   colZero.removeEventListener("click", () => {});
-//   colOne.removeEventListener("click", () => {});
-//   colTwo.removeEventListener("click", () => {});
-//   colThree.removeEventListener("click", () => {});
-//   colFour.removeEventListener("click", () => {});
-//   colFive.removeEventListener("click", () => {});
-//   colSix.removeEventListener("click", () => {});
-// };
+const gameover = () => {
+  console.log("gameover?");
+  colZero.removeEventListener("click", () => {});
+  colOne.removeEventListener("click", () => {});
+  colTwo.removeEventListener("click", () => {});
+  colThree.removeEventListener("click", () => {});
+  colFour.removeEventListener("click", () => {});
+  colFive.removeEventListener("click", () => {});
+  colSix.removeEventListener("click", () => {});
+};
 
 const playGame = () => {
   const checkWins = () => {
@@ -122,14 +122,6 @@ const playGame = () => {
       ) {
         winner.innerText = "WINNER!!!";
         winner.style.opacity = "1";
-        console.log("gameover?");
-        colZero.removeEventListener("click", () => {});
-        colOne.removeEventListener("click", () => {});
-        colTwo.removeEventListener("click", () => {});
-        colThree.removeEventListener("click", () => {});
-        colFour.removeEventListener("click", () => {});
-        colFive.removeEventListener("click", () => {});
-        colSix.removeEventListener("click", () => {});
       }
     }
   };
