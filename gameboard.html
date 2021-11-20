@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Connect Four</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:wght@200&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="title-gameboard">
@@ -19,7 +25,7 @@
     </div>
 
     <div class="container-2-gameboard">
-      <div>Red wins</div>
+      <div class="player-wins">Player 1 wins</div>
       <div id="container-gameboardgrid">
         <h1 id="winner">WINNER!</h1>
         <div class="gamesquares">
@@ -230,11 +236,11 @@
           ></div>
         </div>
       </div>
-      <div>Black wins</div>
+      <div class="player-wins">Player 2 wins</div>
     </div>
 
     <div class="container-3-gameboard">
-      <button>Reset</button>
+      <button id="reset">Reset</button>
     </div>
     <footer>
       <li class="start-page"><a href="index.html">Back to Start Page</a></li>

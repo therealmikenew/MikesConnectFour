@@ -1,13 +1,28 @@
+* {
+  font-family: "Bebas Neue", cursive;
+  font-family: "Fira Sans", sans-serif;
+  background-color: coral;
+}
+
 .container-startpage,
 #title-gameboard {
   display: flex;
   justify-content: center;
   border: 1px solid black;
+  font-size: 45px;
 }
 
+h1 {
+  color: antiquewhite;
+}
+
+.player-wins {
+  font-size: 30px;
+}
 #winner {
   text-align: center;
   opacity: 0;
+  color: antiquewhite;
 }
 
 .gamesquares {
