@@ -7,6 +7,8 @@ const colFour = document.querySelector("#squ-4");
 const colFive = document.querySelector("#squ-5");
 const colSix = document.querySelector("#squ-6");
 
+const winner = document.querySelector("#winner");
+
 const squares = document.querySelectorAll(".squares");
 
 let clicks = 0;
@@ -50,6 +52,45 @@ const gameWins = [
   [1, 8, 15, 22],
   [8, 15, 22, 29],
   [15, 22, 29, 36],
+  [2, 9, 16, 23],
+  [9, 16, 23, 30],
+  [16, 23, 30, 37],
+  [3, 10, 17, 24],
+  [10, 17, 24, 31],
+  [17, 24, 31, 38],
+  [4, 11, 18, 25],
+  [11, 18, 25, 32],
+  [18, 25, 32, 39],
+  [5, 12, 19, 26],
+  [12, 19, 26, 33],
+  [19, 26, 33, 40],
+  [6, 13, 20, 27],
+  [13, 20, 27, 34],
+  [20, 27, 34, 41],
+  [0, 8, 16, 24],
+  [1, 9, 17, 25],
+  [2, 10, 18, 26],
+  [3, 11, 19, 27],
+  [6, 12, 18, 24],
+  [5, 11, 17, 23],
+  [4, 10, 16, 22],
+  [3, 9, 15, 21],
+  [7, 15, 23, 31],
+  [8, 16, 24, 32],
+  [9, 17, 25, 33],
+  [10, 18, 26, 34],
+  [13, 19, 25, 31],
+  [12, 18, 24, 30],
+  [11, 17, 23, 29],
+  [10, 16, 22, 28],
+  [14, 22, 30, 38],
+  [15, 23, 31, 39],
+  [16, 24, 32, 40],
+  [17, 25, 33, 41],
+  [20, 26, 32, 38],
+  [19, 25, 31, 37],
+  [18, 24, 30, 36],
+  [17, 23, 29, 35],
 ];
 
 const checkWins = () => {
@@ -65,7 +106,8 @@ const checkWins = () => {
       squ3.style.backgroundColor === `${color}` &&
       squ4.style.backgroundColor === `${color}`
     ) {
-      console.log(`${color} wins!`);
+      winner.innerText = "Hot Pink wins!";
+      winner.style.opacity = "1";
     }
   }
 };
@@ -78,6 +120,7 @@ colZero.addEventListener("click", () => {
     "background-color: white"
   ) {
     document.getElementById("squ-42").style = `background-color: ${color}`;
+    console.log(gameActive);
   } else if (
     document.getElementById("squ-35").getAttribute("style") ===
     "background-color: white"

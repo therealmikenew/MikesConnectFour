@@ -5,6 +5,11 @@
   border: 1px solid black;
 }
 
+#winner {
+  text-align: center;
+  opacity: 0;
+}
+
 .gamesquares {
   border: 1px solid black;
   display: grid;
