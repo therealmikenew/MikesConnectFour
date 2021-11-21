@@ -25,18 +25,17 @@
     </div>
 
     <div class="container-2-gameboard">
-      <div class="player-wins">Player 1 wins</div>
+      <div class="player-wins" id="playerone-name">Player 1</div>
       <div id="container-gameboardgrid">
         <h1 id="winner">WINNER!</h1>
-
-        <!-- Trigger/Open The Modal -->
-        <button id="myBtn">Open Modal</button>
 
         <!-- The Modal -->
         <div id="myModal" class="modal">
           <div class="modal-content">
             <div>Player 1 wins!</div>
-            <div>Back to start page</div>
+            <button id="return-startpage" onclick="location.href='index.html'">
+              Back to Start
+            </button>
           </div>
         </div>
         <div class="gamesquares">
@@ -247,7 +246,7 @@
           ></div>
         </div>
       </div>
-      <div class="player-wins">Player 2 wins</div>
+      <div class="player-wins">Player 2</div>
     </div>
 
     <div class="container-3-gameboard">

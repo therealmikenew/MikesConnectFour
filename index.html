@@ -18,9 +18,24 @@
       <h1 id="title">Mike's Connect Four</h1>
     </div>
 
-    <div id="startgame">
-      <p><a href="gameboard.html">START GAME</a></p>
-    </div>
+    <form class="user-input" action="gameboard.html">
+      <label for="player-one">Player One</label>
+      <input
+        type="text"
+        id="player-one"
+        name="player-one"
+        placeholder="Enter name"
+      />
+      <label for="player-two">Player Two</label>
+      <input
+        type="text"
+        id="player-two"
+        name="player-two"
+        placeholder="Enter name"
+      />
+
+      <button>START GAME</button>
+    </form>
 
     <script src="index.js"></script>
   </body>

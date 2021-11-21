@@ -20,6 +20,14 @@ let color = "hotpink";
 
 let modal = document.getElementById("myModal");
 
+let userOne = document.querySelector("#player-one");
+
+let userTwo = document.querySelector("#player-two");
+
+console.log(userOne, userTwo);
+
+const playerOne = document.querySelector("#playerone-name");
+
 // //////////////////////////////////functions
 
 const displayWinner = () => {
