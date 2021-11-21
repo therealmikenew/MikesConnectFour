@@ -1,3 +1,4 @@
+/////////////////global variables
 const playerClicks = document.querySelectorAll(".squares-click");
 const colZero = document.querySelector("#squ-0");
 const colOne = document.querySelector("#squ-1");
@@ -17,22 +18,31 @@ let clicks = 0;
 
 let color = "hotpink";
 
+let modal = document.getElementById("myModal");
+
+// //////////////////////////////////functions
+
+const displayWinner = () => {
+  modal.style.display = "block";
+};
+
 const currentColor = () => {
   clicks % 2 === 0 ? (color = "hotpink") : (color = "black");
 };
 
 ////////////// playermoves events
 
-const gameover = () => {
-  console.log("gameover?");
-  colZero.removeEventListener("click", () => {});
-  colOne.removeEventListener("click", () => {});
-  colTwo.removeEventListener("click", () => {});
-  colThree.removeEventListener("click", () => {});
-  colFour.removeEventListener("click", () => {});
-  colFive.removeEventListener("click", () => {});
-  colSix.removeEventListener("click", () => {});
-};
+// const gameover = () => {
+//   gameActive = false;
+//   console.log("gameover?");
+//   colZero.removeEventListener("click", () => {});
+//   colOne.removeEventListener("click", () => {});
+//   colTwo.removeEventListener("click", () => {});
+//   colThree.removeEventListener("click", () => {});
+//   colFour.removeEventListener("click", () => {});
+//   colFive.removeEventListener("click", () => {});
+//   colSix.removeEventListener("click", () => {});
+// };
 
 const playGame = () => {
   const checkWins = () => {
@@ -120,14 +130,10 @@ const playGame = () => {
         squ3.style.backgroundColor === `${color}` &&
         squ4.style.backgroundColor === `${color}`
       ) {
-        winner.innerText = "WINNER!!!";
-        winner.style.opacity = "1";
+        displayWinner();
       }
     }
   };
-  //windows.location
-
-  //function gameover
 
   colZero.addEventListener("click", () => {
     if (
@@ -392,14 +398,6 @@ const playGame = () => {
 playGame();
 
 //*****resetting******
-// reset.addEventListener("click", () => {
-//   console.log("working?");
-// });
-
-// const updateColors = () => {
-//   for (i = 0; i < squares.length; i++) {
-//     squares[i].style.setProperty("background-color", "gray");
-//   }
-// };
-
-// window.onload = updateColors();
+reset.addEventListener("click", () => {
+  window.location.reload();
+});
