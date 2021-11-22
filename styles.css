@@ -45,9 +45,9 @@ h1 {
 .player-wins {
   font-size: 30px;
 }
-#winner {
+#nextplayer {
   text-align: center;
-  opacity: 0;
+
   color: antiquewhite;
 }
 

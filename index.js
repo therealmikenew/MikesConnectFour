@@ -8,8 +8,6 @@ const colFour = document.querySelector("#squ-4");
 const colFive = document.querySelector("#squ-5");
 const colSix = document.querySelector("#squ-6");
 
-const winner = document.querySelector("#winner");
-
 const listWinner = document.querySelector("#list-winner");
 
 const squares = document.querySelectorAll(".squares");
@@ -19,6 +17,19 @@ let clicks = 0;
 let color = "hotpink";
 
 let modal = document.getElementById("myModal");
+
+const nextPlayer = document.querySelector("#nextplayer");
+console.log(nextPlayer);
+
+const displayPlayerTurn = () => {
+  if (clicks % 2 === 0) {
+    nextPlayer.innerText = "Player One next";
+    console.log(clicks);
+  } else if (clicks % 2 !== 0) {
+    nextPlayer.innerText = "Player Two next";
+    console.log(clicks);
+  }
+};
 
 // //////////////////////////////////functions
 
@@ -39,7 +50,6 @@ const playMusic = () => {
   let myMusic = new Audio("./music/music.m4a");
   myMusic.play();
 };
-playMusic();
 
 ////////////// playermoves events
 
@@ -182,6 +192,7 @@ const playGame = () => {
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 
   colOne.addEventListener("click", () => {
@@ -216,9 +227,11 @@ const playGame = () => {
     ) {
       document.getElementById("squ-8").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 
   colTwo.addEventListener("click", () => {
@@ -253,9 +266,11 @@ const playGame = () => {
     ) {
       document.getElementById("squ-9").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 
   colThree.addEventListener("click", () => {
@@ -290,9 +305,11 @@ const playGame = () => {
     ) {
       document.getElementById("squ-10").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 
   colFour.addEventListener("click", () => {
@@ -327,9 +344,11 @@ const playGame = () => {
     ) {
       document.getElementById("squ-11").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 
   colFive.addEventListener("click", () => {
@@ -364,9 +383,11 @@ const playGame = () => {
     ) {
       document.getElementById("squ-12").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 
   colSix.addEventListener("click", () => {
@@ -401,10 +422,11 @@ const playGame = () => {
     ) {
       document.getElementById("squ-13").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
+    displayPlayerTurn();
   });
 };
-
 playGame();

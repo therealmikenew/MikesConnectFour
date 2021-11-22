@@ -19,54 +19,15 @@
       <h1>Let's Play!</h1>
     </div>
 
-    <div class="container-1-gameboard">
-      <button>Click to play red</button>
-      <p>Timer</p>
-      <button>Click to play black</button>
-    </div>
+    <div class="container-1-gameboard"></div>
 
     <div class="container-2-gameboard">
-      <div class="player-wins" id="playerone-name">Player 1</div>
       <div id="container-gameboardgrid">
-        <h1 id="winner">WINNER!</h1>
-
-        <!-- user inputs -->
-
-        <div id="modal-inputs" class="modal">
-          <div class="modal-content">
-            <div class="container-inputs">
-              <form action="gameboard.html">
-                <div id="container-inputs-one">
-                  <label for="player-one">Player One</label>
-                  <input
-                    type="text"
-                    id="player-one-name"
-                    name="player-one"
-                    value="Enter Name"
-                  />
-                </div>
-
-                <div id="container-inputs-two">
-                  <label for="player-two">Player Two</label>
-                  <input
-                    type="text"
-                    id="player-two-name"
-                    name="player-two"
-                    value="Enter Name"
-                  />
-                </div>
-
-                <div id="container-inputs-three">
-                  <input id="startgame-btn" type="submit" value="START GAME" />
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
+        <h2 id="nextplayer">Player One next</h2>
 
         <div id="myModal" class="modal">
           <div class="modal-content">
-            <div><span id="list-winner">TEST</span> wins!</div>
+            <div><span id="list-winner"></span> wins!</div>
             <button id="return-startpage" onclick="location.href='index.html'">
               Back to Start
             </button>
@@ -280,14 +241,13 @@
           ></div>
         </div>
       </div>
-      <div class="player-wins">Player 2</div>
     </div>
 
-    <div class="container-3-gameboard">
-      <button id="reset">Reset</button>
-    </div>
+    <div class="container-3-gameboard"></div>
     <footer>
-      <li class="start-page"><a href="index.html">Back to Start Page</a></li>
+      <form action="index.html">
+        <input type="submit" value="Back to Start Page" />
+      </form>
     </footer>
 
     <script src="index.js"></script>
