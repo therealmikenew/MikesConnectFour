@@ -12,8 +12,6 @@ const winner = document.querySelector("#winner");
 
 const listWinner = document.querySelector("#list-winner");
 
-console.log(listWinner);
-
 const squares = document.querySelectorAll(".squares");
 
 let clicks = 0;
@@ -36,6 +34,12 @@ const displayWinner = () => {
 const currentColor = () => {
   clicks % 2 === 0 ? (color = "hotpink") : (color = "black");
 };
+
+const playMusic = () => {
+  let myMusic = new Audio("./music/music.m4a");
+  myMusic.play();
+};
+playMusic();
 
 ////////////// playermoves events
 
@@ -174,6 +178,7 @@ const playGame = () => {
     ) {
       document.getElementById("squ-7").style = `background-color: ${color}`;
     }
+
     checkWins();
     clicks++;
     currentColor();
