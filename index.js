@@ -13,21 +13,30 @@ const listWinner = document.querySelector("#list-winner");
 const squares = document.querySelectorAll(".squares");
 
 let clicks = 0;
-
+let computerClicks = 1;
+let versusComputer = false;
 let color = "hotpink";
 
 let modal = document.getElementById("myModal");
 
 const nextPlayer = document.querySelector("#nextplayer");
-console.log(nextPlayer);
+
+const versusBtn = document.querySelector("#versus-computer");
+console.log(versusBtn);
+
+versusBtn.addEventListener("click", () => {
+  if (versusComputer === false) {
+    versusComputer = true;
+  } else {
+    versusComputer = false;
+  }
+});
 
 const displayPlayerTurn = () => {
   if (clicks % 2 === 0) {
     nextPlayer.innerText = "Player One next";
-    console.log(clicks);
   } else if (clicks % 2 !== 0) {
     nextPlayer.innerText = "Player Two next";
-    console.log(clicks);
   }
 };
 
@@ -46,23 +55,9 @@ const currentColor = () => {
   clicks % 2 === 0 ? (color = "hotpink") : (color = "black");
 };
 
-const playMusic = () => {
-  let myMusic = new Audio("./music/music.m4a");
-  myMusic.play();
-};
-
-////////////// playermoves events
-
-// const gameover = () => {
-//   gameActive = false;
-//   console.log("gameover?");
-//   colZero.removeEventListener("click", () => {});
-//   colOne.removeEventListener("click", () => {});
-//   colTwo.removeEventListener("click", () => {});
-//   colThree.removeEventListener("click", () => {});
-//   colFour.removeEventListener("click", () => {});
-//   colFive.removeEventListener("click", () => {});
-//   colSix.removeEventListener("click", () => {});
+// const playMusic = () => {
+//   let myMusic = new Audio("./music/music.m4a");
+//   myMusic.play();
 // };
 
 const playGame = () => {
@@ -155,278 +150,691 @@ const playGame = () => {
       }
     }
   };
+  const selectColZero = () => {
+    colZero.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-42").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-42").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-35").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-35").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-28").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-28").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-21").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-21").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-14").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-14").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-7").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-7").style = `background-color: ${color}`;
+      }
 
-  colZero.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-42").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-42").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-35").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-35").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-28").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-28").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-21").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-21").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-14").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-14").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-7").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-7").style = `background-color: ${color}`;
-    }
+      checkWins();
+      clicks++;
+      computerClicks++;
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
+  const selectColOne = () => {
+    colOne.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-43").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-43").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-36").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-36").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-29").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-29").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-22").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-22").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-15").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-15").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-8").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-8").style = `background-color: ${color}`;
+      }
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+      checkWins();
+      clicks++;
+      computerClicks++;
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
+  const selectColTwo = () => {
+    colTwo.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-44").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-44").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-37").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-37").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-30").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-30").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-23").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-23").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-16").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-16").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-9").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-9").style = `background-color: ${color}`;
+      }
 
-  colOne.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-43").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-43").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-36").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-36").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-29").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-29").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-22").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-22").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-15").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-15").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-8").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-8").style = `background-color: ${color}`;
-    }
+      checkWins();
+      clicks++;
+      computerClicks++;
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
+  const selectColThree = () => {
+    colThree.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-45").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-45").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-38").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-38").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-31").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-31").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-24").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-24").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-17").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-17").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-10").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-10").style = `background-color: ${color}`;
+      }
 
-  colTwo.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-44").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-44").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-37").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-37").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-30").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-30").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-23").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-23").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-16").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-16").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-9").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-9").style = `background-color: ${color}`;
-    }
+      checkWins();
+      clicks++;
+      computerClicks++;
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
+  const selectColFour = () => {
+    colFour.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-46").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-46").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-39").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-39").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-32").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-32").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-25").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-25").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-18").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-18").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-11").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-11").style = `background-color: ${color}`;
+      }
 
-  colThree.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-45").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-45").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-38").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-38").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-31").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-31").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-24").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-24").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-17").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-17").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-10").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-10").style = `background-color: ${color}`;
-    }
+      checkWins();
+      clicks++;
+      computerClicks++;
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
+  const selectColFive = () => {
+    colFive.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-47").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-47").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-40").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-40").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-33").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-33").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-26").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-26").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-19").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-19").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-12").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-12").style = `background-color: ${color}`;
+      }
 
-  colFour.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-46").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-46").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-39").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-39").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-32").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-32").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-25").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-25").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-18").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-18").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-11").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-11").style = `background-color: ${color}`;
-    }
+      checkWins();
+      clicks++;
+      computerClicks++;
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
+  const selectColSix = () => {
+    colSix.addEventListener("click", () => {
+      if (
+        document.getElementById("squ-48").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-48").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-41").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-41").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-34").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-34").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-27").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-27").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-20").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-20").style = `background-color: ${color}`;
+      } else if (
+        document.getElementById("squ-13").getAttribute("style") ===
+        "background-color: white"
+      ) {
+        document.getElementById("squ-13").style = `background-color: ${color}`;
+      }
 
-  colFive.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-47").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-47").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-40").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-40").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-33").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-33").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-26").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-26").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-19").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-19").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-12").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-12").style = `background-color: ${color}`;
-    }
+      checkWins();
+      clicks++;
+      computerClicks++;
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+      currentColor();
+      displayPlayerTurn();
+      playAgainstComputer();
+    });
+  };
 
-  colSix.addEventListener("click", () => {
-    if (
-      document.getElementById("squ-48").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-48").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-41").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-41").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-34").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-34").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-27").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-27").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-20").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-20").style = `background-color: ${color}`;
-    } else if (
-      document.getElementById("squ-13").getAttribute("style") ===
-      "background-color: white"
-    ) {
-      document.getElementById("squ-13").style = `background-color: ${color}`;
-    }
+  selectColZero();
+  selectColOne();
+  selectColTwo();
+  selectColThree();
+  selectColFour();
+  selectColFive();
+  selectColSix();
 
-    checkWins();
-    clicks++;
-    currentColor();
-    displayPlayerTurn();
-  });
+  ////////VERSUS COMPUTER
+
+  const playAgainstComputer = () => {
+    if (versusComputer === true) {
+      const choiceZero = () => {
+        if (
+          document.getElementById("squ-42").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-42"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-35").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-35"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-28").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-28"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-21").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-21"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-14").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-14"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-7").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById("squ-7").style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+      const choiceOne = () => {
+        if (
+          document.getElementById("squ-43").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-43"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-36").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-36"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-29").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-29"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-22").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-22"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-15").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-15"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-8").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById("squ-8").style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+      const choiceTwo = () => {
+        if (
+          document.getElementById("squ-44").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-44"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-37").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-37"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-30").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-30"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-23").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-23"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-16").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-16"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-9").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById("squ-9").style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+      const choiceThree = () => {
+        if (
+          document.getElementById("squ-45").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-45"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-38").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-38"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-31").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-31"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-24").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-24"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-17").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-17"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-10").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-10"
+          ).style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+      const choiceFour = () => {
+        if (
+          document.getElementById("squ-46").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-46"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-39").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-39"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-32").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-32"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-25").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-25"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-18").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-18"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-11").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-11"
+          ).style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+      const choiceFive = () => {
+        if (
+          document.getElementById("squ-47").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-47"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-40").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-40"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-33").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-33"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-26").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-26"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-19").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-19"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-12").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-12"
+          ).style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+      const choiceSix = () => {
+        if (
+          document.getElementById("squ-48").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-48"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-41").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-41"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-34").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-34"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-27").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-27"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-20").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-20"
+          ).style = `background-color: ${color}`;
+        } else if (
+          document.getElementById("squ-13").getAttribute("style") ===
+          "background-color: white"
+        ) {
+          document.getElementById(
+            "squ-13"
+          ).style = `background-color: ${color}`;
+        }
+
+        checkWins();
+        clicks++;
+        computerClicks++;
+        currentColor();
+        displayPlayerTurn();
+      };
+
+      const choicesArr = [
+        choiceZero,
+        choiceOne,
+        choiceTwo,
+        choiceThree,
+        choiceFour,
+        choiceFive,
+        choiceSix,
+      ];
+
+      if (computerClicks % 2 !== 0) {
+        console.log("odd");
+        console.log(Math.floor(Math.random() * 7));
+
+        choicesArr[Math.floor(Math.random() * 7)]();
+      } else {
+        console.log("even");
+      }
+    } else return;
+  };
+  //playAgainstComputer();
 };
+
 playGame();
