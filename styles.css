@@ -1,16 +1,36 @@
-* {
+body {
   font-family: "Bebas Neue", cursive;
   font-family: "Fira Sans", sans-serif;
-  background-color: coral;
+  background-color: #3a86ff;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
 
 .container-startpage,
 #title-gameboard {
   display: flex;
   justify-content: center;
-  margin: auto;
-  border: 1px solid black;
+
   font-size: 45px;
+  background-color: #ff006e;
+}
+
+.container-inputs {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+#container-inputs-one,
+#container-inputs-two,
+#container-inputs-three {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 h1 {
@@ -100,4 +120,9 @@ h1 {
   border: 1px solid #888;
   height: 60%;
   width: 60%; /* Could be more or less, depending on screen size */
+}
+
+footer {
+  height: 75px;
+  background-color: #ff006e;
 }

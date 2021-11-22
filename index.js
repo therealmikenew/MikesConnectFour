@@ -10,9 +10,11 @@ const colSix = document.querySelector("#squ-6");
 
 const winner = document.querySelector("#winner");
 
-const squares = document.querySelectorAll(".squares");
+const listWinner = document.querySelector("#list-winner");
 
-const reset = document.querySelector("#reset");
+console.log(listWinner);
+
+const squares = document.querySelectorAll(".squares");
 
 let clicks = 0;
 
@@ -20,18 +22,15 @@ let color = "hotpink";
 
 let modal = document.getElementById("myModal");
 
-let userOne = document.querySelector("#player-one");
-
-let userTwo = document.querySelector("#player-two");
-
-console.log(userOne, userTwo);
-
-const playerOne = document.querySelector("#playerone-name");
-
 // //////////////////////////////////functions
 
 const displayWinner = () => {
   modal.style.display = "block";
+  if (clicks % 2 === 0) {
+    listWinner.innerText = "Player One";
+  } else {
+    listWinner.innerText = "Player Two";
+  }
 };
 
 const currentColor = () => {
@@ -404,8 +403,3 @@ const playGame = () => {
 };
 
 playGame();
-
-//*****resetting******
-reset.addEventListener("click", () => {
-  window.location.reload();
-});
