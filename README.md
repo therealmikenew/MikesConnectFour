@@ -2,7 +2,7 @@
 
 ![Connect Four](https://thumbs.gfycat.com/RipeBitesizedBarasinga-size_restricted.gif)
 
-## 11/18/2021
+## 11/23/2021
 
 ## By: Michael Newman
 
@@ -14,13 +14,19 @@
 
 #### Mike's Connect Four is a version of the classic game created by Milton Bradley.
 
-#### On page load, users are presented with a landing page where they can select a two-player game or opt to play against the computer.
+#### On page load, users are presented with a landing page where they can press a start button to navigate to the game board.
 
-#### After selecting either two-player or versus the computer, users can select Fast mode where users must make game moves within a certain amount or time or risk ending the game. If they select Fast mode and also versus the computer, the computer makes selection within a few seconds. In Normal mode (both two-player or versus the computer), there is no time restriction.
+#### The game board defaults to two-player mode. Users can toggle between two-player mode and versus computer mode. The reset board button clears the board and starts the game over, whether in two-player mode or versus computer mode.
 
-#### After the user makes their selections, they are navigated to the game board where they can pick either red or black pieces. They must press a start button to begin game.
+#### When a win occurs (four of the same color in a row), a modal pops up declaring the winner and a button will navigate back to the landing page.
 
-#### A scoreboard keeps track of wins. A reset button will empty the game board and reset the score tally. A button will allow users to navigate back to the landing page where they can "start over" and/or make new selections.
+---
+
+### **_Future Tasks_**
+
+- Delay the computer's game move response during versus computer mode
+- Add a timed game function
+- Create scoreboard to keep track of wins
 
 ---
 
@@ -40,8 +46,14 @@
 
 #### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/wGUqAkBQ/mikes-connect-four).
 
+#### The project has also been deployed on [Surge](https://surge.sh/) and can be viewed [here](https://greasy-camp.surge.sh/).
+
 ---
 
 ### **_Credits_**
+
+Thanks to [Ania Kubow](https://github.com/kubowania) for tutorials on winning array combinations.
+
+Thanks to [Florin Pop](https://github.com/florinpop17) for tutorials on animation effects.
 
 GIF provided by [gfycat](https://gfycat.com/)
