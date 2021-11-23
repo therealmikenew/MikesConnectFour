@@ -7,43 +7,70 @@ const colThree = document.querySelector("#squ-3");
 const colFour = document.querySelector("#squ-4");
 const colFive = document.querySelector("#squ-5");
 const colSix = document.querySelector("#squ-6");
-
 const listWinner = document.querySelector("#list-winner");
-
 const squares = document.querySelectorAll(".squares");
+const playerTurn = document.querySelector("#playerturn");
+const gameMode = document.querySelector("#gamemode");
+const modal = document.getElementById("myModal");
+const versusBtn = document.querySelector("#versus-computer");
 
 let clicks = 0;
-let computerClicks = 1;
+let computerClicks = 0;
 let versusComputer = false;
 let color = "hotpink";
+let startingColor = "white";
+let selectionColor = "white";
 
-let modal = document.getElementById("myModal");
+// const setSelectionColors = () => {
+//   playerClicks.forEach((squ) => {
+//     squ.setAttribute("style", `background-color: ${selectionColor}`);
+//   });
+// };
 
-const nextPlayer = document.querySelector("#nextplayer");
+// setSelectionColors();
 
-const versusBtn = document.querySelector("#versus-computer");
-console.log(versusBtn);
+const setInitialColors = () => {
+  squares.forEach((squ) => {
+    squ.setAttribute("style", `background-color: ${startingColor}`);
+  });
+};
+
+const resetBoard = () => {
+  setInitialColors();
+  clicks = 0;
+  computerClicks = 0;
+  playerTurn.innerText = "Player One next";
+};
 
 versusBtn.addEventListener("click", () => {
+  resetBoard();
+  playerTurn.innerText = "Player next";
   if (versusComputer === false) {
     versusComputer = true;
+    gameMode.innerText = "Versus Computer Mode";
+    versusBtn.innerText = "Click to go to Two-Player Mode";
   } else {
     versusComputer = false;
+    gameMode.innerText = "Two-Player Mode";
+    versusBtn.innerText = "Click to play against computer";
+    playerTurn.innerText = "Player next";
   }
 });
 
 const displayPlayerTurn = () => {
-  if (clicks % 2 === 0) {
-    nextPlayer.innerText = "Player One next";
-  } else if (clicks % 2 !== 0) {
-    nextPlayer.innerText = "Player Two next";
-  }
+  clicks % 2 === 0
+    ? (playerTurn.innerText = "Player One next")
+    : (playerTurn.innerText = "Player Two next");
 };
 
-// //////////////////////////////////functions
+const playMusic = () => {
+  let myMusic = new Audio("./music/music.m4a");
+  myMusic.play();
+};
 
 const displayWinner = () => {
   modal.style.display = "block";
+  playMusic();
   if (clicks % 2 === 0) {
     listWinner.innerText = "Player One";
   } else {
@@ -55,12 +82,8 @@ const currentColor = () => {
   clicks % 2 === 0 ? (color = "hotpink") : (color = "black");
 };
 
-// const playMusic = () => {
-//   let myMusic = new Audio("./music/music.m4a");
-//   myMusic.play();
-// };
-
 const playGame = () => {
+  setInitialColors();
   const checkWins = () => {
     const gameWins = [
       [35, 36, 37, 38],
@@ -825,16 +848,11 @@ const playGame = () => {
       ];
 
       if (computerClicks % 2 !== 0) {
-        console.log("odd");
-        console.log(Math.floor(Math.random() * 7));
-
         choicesArr[Math.floor(Math.random() * 7)]();
-      } else {
-        console.log("even");
-      }
+        playerTurn.innerText = "Player next";
+      } else return;
     } else return;
   };
-  //playAgainstComputer();
 };
 
 playGame();

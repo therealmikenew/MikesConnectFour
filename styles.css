@@ -25,8 +25,6 @@ html {
   margin: 20px;
 }
 
-#container-inputs-one,
-#container-inputs-two,
 #container-inputs-three {
   display: flex;
   justify-content: center;
@@ -76,14 +74,20 @@ h1 {
 }
 
 .squares-click {
-  background-color: white;
+  background-color: #8338ec;
 }
 
 .squares-click:hover {
-  background-color: greenyellow;
+  background-color: yellow;
 }
 
-.container-1-gameboard,
+.container-1-gameboard {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .container-2-gameboard {
   display: flex;
   justify-content: space-around;
@@ -100,26 +104,27 @@ h1 {
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
+  display: none;
+  position: fixed;
+  /* z-index: 1; */
+  /* left: 0;
+  top: 0; */
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  /* overflow: auto; Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 20% auto; /* 15% from the top and centered */
-  padding: 20px;
+  margin: 20%;
+  padding: 20px 20px 20px 20px;
   border: 1px solid #888;
-  height: 60%;
-  width: 60%; /* Could be more or less, depending on screen size */
+  height: 50%;
+  width: 50%;
+  font-size: 40px;
+  text-align: center;
 }
 
 footer {
