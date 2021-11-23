@@ -36,7 +36,8 @@ html {
 #startgame-btn,
 #versus-computer,
 #back-btn,
-#return-startpage {
+#return-startpage,
+#reset-btn {
   background-color: #4caf50;
   border: none;
   color: white;
@@ -138,9 +139,12 @@ html {
   text-align: center;
 }
 
-footer {
-  text-align: center;
+.footer-container {
+  display: flex;
+  background-color: #ff006e;
+  justify-content: flex-end;
+  align-items: baseline;
   height: 75px;
   padding-top: 10px;
-  background-color: #ff006e;
+  padding-bottom: 10px;
 }

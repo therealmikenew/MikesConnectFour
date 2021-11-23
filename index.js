@@ -13,6 +13,7 @@ const playerTurn = document.querySelector("#playerturn");
 const gameMode = document.querySelector("#gamemode");
 const modal = document.getElementById("myModal");
 const versusBtn = document.querySelector("#versus-computer");
+const resetBtn = document.querySelector("#reset-btn");
 
 let clicks = 0;
 let computerClicks = 0;
@@ -20,14 +21,6 @@ let versusComputer = false;
 let color = "hotpink";
 let startingColor = "white";
 let selectionColor = "white";
-
-// const setSelectionColors = () => {
-//   playerClicks.forEach((squ) => {
-//     squ.setAttribute("style", `background-color: ${selectionColor}`);
-//   });
-// };
-
-// setSelectionColors();
 
 const setInitialColors = () => {
   squares.forEach((squ) => {
@@ -39,21 +32,24 @@ const resetBoard = () => {
   setInitialColors();
   clicks = 0;
   computerClicks = 0;
-  playerTurn.innerText = "Player One next";
+  // playerTurn.innerText = "Player One next";
 };
+
+resetBtn.addEventListener("click", resetBoard);
 
 versusBtn.addEventListener("click", () => {
   resetBoard();
-  playerTurn.innerText = "Player next";
+  // playerTurn.innerText = "Player next";
   if (versusComputer === false) {
     versusComputer = true;
+    playerTurn.innerText = "Player next";
     gameMode.innerText = "Versus Computer Mode";
     versusBtn.innerText = "Click to go to Two-Player Mode";
   } else {
     versusComputer = false;
     gameMode.innerText = "Two-Player Mode";
     versusBtn.innerText = "Click to play against computer";
-    playerTurn.innerText = "Player next";
+    playerTurn.innerText = "Player One next";
   }
 });
 
@@ -71,10 +67,14 @@ const playMusic = () => {
 const displayWinner = () => {
   modal.style.display = "block";
   playMusic();
-  if (clicks % 2 === 0) {
-    listWinner.innerText = "Player One";
-  } else {
-    listWinner.innerText = "Player Two";
+  if (clicks % 2 === 0 && versusComputer === false) {
+    listWinner.innerText = "Player One wins!";
+  } else if (clicks % 2 !== 0 && versusComputer === false) {
+    listWinner.innerText = "Player Two wins!";
+  } else if (computerClicks % 2 !== 0 && versusComputer === true) {
+    listWinner.innerText = "The Computer wins!";
+  } else if (computerClicks % 2 === 0 && versusComputer === true) {
+    listWinner.innerText = "You beat the Computer!";
   }
 };
 
