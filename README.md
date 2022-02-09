@@ -40,13 +40,13 @@
 
 ### **_Getting Started_**
 
+#### The project has been deployed on [Surge](https://surge.sh/) and can be viewed [here](https://greasy-camp.surge.sh/).
+
 - `Fork` and `clone` this repository
 - `cd` into the directory on your local machine
 - Run `open index.html` to open the website in your browser and `cmd + option + i` (MacOS) or `ctrl + shift + i` (Windows/Linux) to open your dev tools
 
 #### A Trello board was used to keep track of development progress and can be viewed [here](https://trello.com/b/wGUqAkBQ/mikes-connect-four).
-
-#### The project has also been deployed on [Surge](https://surge.sh/) and can be viewed [here](https://greasy-camp.surge.sh/).
 
 ---
 
